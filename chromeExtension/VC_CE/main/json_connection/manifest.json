@@ -1,0 +1,10 @@
+{
+    "name": "Volume Controller",
+    "version":"1.0",
+    "manifest_version":3,
+    "description":"Extension to adjust the volume of your computer with the power of computer vision",
+    "browser_action" : {
+        "default_icon":"icon.png",
+        "default_popup":"index.html"
+    }
+}
