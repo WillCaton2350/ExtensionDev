@@ -1,3 +1,5 @@
+// This is the OpenCV.js script without node.js to connect it to the computers operating system. 
+// It can't be activated by the linked html element with the onclick() function yet. (WIP)
 function activate() {
     let cap = new cv.VideoCapture(0);
     cap.set(cv.CAP_PROP_FRAME_WIDTH, 640);
