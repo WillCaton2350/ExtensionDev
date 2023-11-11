@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+    font-family: 'Kanit', sans-serif;
+}
+h1{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+    font-size: 4rem;
+}
+h2{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 4rem;
+}
+
+button,.btn{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    color: #fff;
+    background-color: brown;
+    margin-left: 690px;
+    margin-top: 30px;
+}
