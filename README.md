@@ -1,5 +1,11 @@
 # ExtensionDev
 Audio Controller Chrome Extension 
 Todo: 
- - incorporate Node.js for server side / operating system interations with the opencv.js - Html - Css Frontend
+ - Install * Dependencies
  - Install Node.JS
+ - npm install express child_process
+ - Node.js === Backend Logic & Operating System Interactions
+ - Expresss.js === API Middleware
+ - Opencv.js === Frontend Logic
+ - HTML & CSS === Frontend Design 
+
