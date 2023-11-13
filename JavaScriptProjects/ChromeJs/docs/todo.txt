@@ -1,0 +1,60 @@
+{$Progress}
+
+🟢 - Installed Node.js
+🟢 - Installed Express.js 
+🟢 - Served the static css file(s) to the UI from the Express.js api
+🟢 - Served the html file(s) that is linked with the css file through the Express.js api 
+🟡 - Osascript is working 
+    * (Needs to be linked to the opencv gesture tracking logic and not the start button)
+    * (Is working but not as intended)
+🟡 - The app.js file that interacts with the MacOS is working. (With Osascript and connects to the html {Tested with start button & Volume at 50%})
+🟢 - Localhost:30000/ is running 
+    * (node api.js === activate server ) 
+
+{$Upcoming}
+🟢 - Connect the opencv.js logic in the activate() function
+    * Initialize camera 
+    * (Solution) Initialized camera inside of html video tag with mediapipe
+🔴 - Test the gesture tracking logic 
+    * (Test each of the landmarks once the camera is activated / initialized by the start button on the html page)
+    * (That is on the html page with the app.js logic)
+    * (Make sure that the gesture tracking logic is connected to the osascript)
+🔴 - Download the necessary files from the Mediapipe GitHub repository:
+    + hands_solution_packed_assets_loader.js
+    + hands_solution_simd_wasm_bin.js
+    + hands_solution_packed_assets_loader.tflite
+        * Github link for the files: https://github.com/google/mediapipe
+
+
+{$Issues}
+
+/* 
+ - THIS IS THE BROKEN FUNCTION
+
+ - THE ACTIVATE() FUNCTION WORKS WHEN I CONNECT IT DIRECTLY TO OSASCRIPT 
+
+ - BUT THE ACTIVATE() FUNCTION DOESNT WORK WHEN I CALL THE OPENCV CAMERA INITIALIZATION FROM THAT SAME FUNCTION
+
+ - TODO / UPCOMING:
+  * GET THE ACTIVATE() FUNCTION TO INITIALIZE THE CAMERA
+  * TEST THE GESTURE TRACKING LOGIC 
+  * CONFIG THE OSASCRIPT MACOS INTERACTION
+  * THE VIDEO TAG THAT IS SUPPOSED TO DISPLAY THE CAMERA FEED ISNT working
+  * THE CAMERA ISNT BEING INITIALIZED ON START LIKE THE AUTOPLAY ATTRIBUTE SUGGESTS. 
+  * ALSO, THE CAMERA ISNT EVEN TURNING ON WHEN THE PLAY BUTTON IS ACTIVATED 
+   +  (SO I DONT THINK THAT THE BACKEND CAMERA FEED IS CONNECTED TO THE VIDEO TAG / WHICH IS ALSO WHY I SUGGESTED AN OSASCRIPT CONNECTION TO THE BACKEND THROUGH THE EXPRESS.JS API)
+  * LINK THE PACKAGED EXTENSION TO THE MANIFEST.JSON FILE
+  * (MANIFEST.JSON FILE IS THE DEFAULT METADATA FOR A SOON TO BE PUBLISHED CHROME EXTENSION)
+*/
+        function activate() {
+            console.log("Button clicked!");
+            /*if (!cap || !cap.isOpened()) {
+                cap = new cv.VideoCapture();
+                cap.open(0);
+                cap.set(cv.CAP_PROP_FRAME_WIDTH, 640);
+                cap.set(cv.CAP_PROP_FRAME_HEIGHT, 480);
+                setTimeout(() => {
+                    processVideo();
+                }, 1000); */
+            }
+        //}
