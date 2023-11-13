@@ -1,4 +1,4 @@
-
+/*
 class HandDetector {
     constructor(staticMode = false, maxHands = 2, modelComplexity = 1, detectionCon = 0.5, minTrackCon = 0.5) {
         this.staticMode = staticMode;
@@ -137,3 +137,4 @@ function main() {
         context.drawImage(videoElement, 0, 0, videoElement.width, videoElement.height);
         img.data.set(context.getImageData(0, 0));
         }
+*/
