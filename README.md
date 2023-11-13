@@ -7,5 +7,5 @@ Todo:
  - Node.js === Backend Logic & Operating System Interactions
  - Expresss.js === API Middleware
  - Opencv.js === Frontend Logic
- - HTML & CSS === Frontend Design 
-
+ - HTML & CSS === Frontend Design
+ - Mediapipe API === Camera integration 
