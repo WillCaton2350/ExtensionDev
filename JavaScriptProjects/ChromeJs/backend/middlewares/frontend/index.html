@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Volume Control Extension</title>
+</head>
+<body>
+    <h1>Volume Controller 🔊</h1>
+    <button onclick="activate()" class="btn">Start</button>
+    <button onclick="deactivate()" class="stopbtn">Stop</button>
+    <video class="video-tag" id="videoElement" width="640" height="480" autoplay></video>
+    <canvas id="canvasElement" width="640" height="480"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/handtrackjs"></script>
+    <script>
+        let videoElement;
+        let canvasElement;
+
+        function activate() {
+            console.log("Start button clicked!");
+            videoElement = document.getElementById('videoElement');
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    videoElement.srcObject = stream;
+                    videoElement.play();
+                    detectHands();
+                })
+                .catch(error => {
+                    console.error('Error accessing camera:', error);
+                });
+        }
+
+        function deactivate() {
+            console.log("Stop button clicked!");
+            if (videoElement && videoElement.srcObject) {
+                const tracks = videoElement.srcObject.getTracks();
+                tracks.forEach(track => track.stop());
+                videoElement.srcObject = null;
+            }
+        }
+
+        async function detectHands() {
+            const model = await handTrack.load();
+            const canvas = document.getElementById('canvasElement');
+            const context = canvas.getContext('2d');
+
+            async function runDetection() {
+                // Check if the video has loaded data
+                if (videoElement.readyState >= 2) {
+                    const predictions = await model.detect(videoElement);
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+
+                    predictions.forEach(prediction => {
+                        const x = prediction.bbox[0];
+                        const y = prediction.bbox[1];
+                        const width = prediction.bbox[2];
+                        const height = prediction.bbox[3];
+
+                        context.beginPath();
+                        context.rect(x, y, width, height);
+                        context.lineWidth = 2;
+                        context.strokeStyle = 'red';
+                        context.fillStyle = 'rgba(255, 0, 0, 0.2)';
+                        context.fill();
+                        context.stroke();
+                    });
+                }
+
+                requestAnimationFrame(runDetection);
+            }
+
+            runDetection();
+        }
+    </script>
+</body>
+</html>
